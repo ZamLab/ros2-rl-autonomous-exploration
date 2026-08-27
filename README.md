@@ -101,7 +101,7 @@ Communication Interface** that owns every ROS endpoint the environment needs:
   choosing a non-progressive (repeated) goal. Full definition in
   [`REPORT.md`](REPORT.md).
 
-![Observation examples](docs/figures/observation_examples.jpg)
+
 
 *Observation images: the SLAM map with the robot's position marked.*
 
