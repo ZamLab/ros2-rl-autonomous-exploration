@@ -193,9 +193,9 @@ Gazebo · OpenAI Gym · TurtleBot3 Waffle (2D LiDAR)
 
 ## A note on running it
 
+
 This is thesis code shared as a portfolio piece. Reproducing a full run requires
 a configured ROS 2 + Nav2 + SLAM Toolbox + Gazebo installation with the
 TurtleBot3 packages, plus the custom Gazebo worlds and the saved SLAM pose
 graphs referenced in the code — which are part of the wider thesis setup and are
-not included here. The code is intended to show the design and implementation of
-the system. Additionally, several modifications have been made to the parameter files (.yaml and launch files) of the Nav2 stack, SLAM Toolbox, ROS 2 communication, and the world files.
+not included here. Τhe provided version of the code may include functionalities developed to support specific tests conducted during the experiments. Its purpose is to provide an overview of the overall structure, implementation, and approach to error handling. Additionally, several modifications have been made to the parameter files (.yaml and launch files) of the Nav2 stack, SLAM Toolbox, ROS 2 communication, and the world files.
