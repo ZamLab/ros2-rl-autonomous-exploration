@@ -41,7 +41,25 @@ to the exploration opportunities visible in the image. The image is resized to a
 fixed **64×64**, which gives every observation the same dimensionality and the
 right level of abstraction (global structure rather than individual cells).
 
-![Observation examples](docs/figures/observation_examples.jpg)
+$$
+m'_{i,j} =
+\begin{cases}
+0, & m_{i,j} = 0 \\
+127, & m_{i,j} = -1 \\
+255, & m_{i,j} = 255 \\
+198, & m_{i,j} \in \mathrm{pos}_{x,y}
+\end{cases}
+\qquad
+\forall i: 0 \leq i \leq W,\ \forall j: 0 \leq j \leq H
+$$
+where, 
+$$
+r = \frac{r_{\mathrm{meters}}}{\mathrm{resolution}}
+= \frac{0.15}{\mathrm{resolution}},
+\qquad
+\mathrm{pos}_{x,y} =
+\{(i,j) : (i-x)^2 + (j-y)^2 \leq r^2\}
+$$
 
 ### Action space
 
