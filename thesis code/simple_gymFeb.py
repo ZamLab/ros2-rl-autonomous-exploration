@@ -201,7 +201,7 @@ class XelonaEnv(gym.Env):
         self.m2 = []
         # Metric 3: coverage at fixed step counts.
         self.m3 = []
-        self.step_checker = False
+        
         # Localization metric.
         self.localization_metric_list = []
         self.localization_lost_count = 0
@@ -287,7 +287,7 @@ class XelonaEnv(gym.Env):
         self.episode_count = self.episode_count + 1
 
         # Reset the ROS 2 side (respawn robot, reload map/pose graph, etc.).
-        healthyReset, self.step_checker = self.xelona_com.reset_com()
+        healthyReset = self.xelona_com.reset_com()
 
         # First observation after reset.
         observation, healthyReset = self.xelona_com.execute_first_small_step()
@@ -550,10 +550,6 @@ def main_infer_plots():
         print(f">>>>EPISODE COUNT IS : {envs.episode_count}<<<<")
         actions, _states = model.predict(obs, deterministic=True)
         obs, reward, terminated, truncated, info = envs.step(actions)
-        if (envs.step_checker) and (actions == 5):
-            print("Got inside the if - statement")
-            temp_act = np.array(0, dtype=int)
-            obs, reward, terminated, truncated, info = envs.step(temp_act)
         if terminated or truncated:
             obs, info = envs.reset()
 
@@ -616,10 +612,6 @@ def main_infer_plots():
     while envs.episode_count < 10:
         actions, _states = model.predict(obs, deterministic=True)
         obs, reward, terminated, truncated, info = envs.step(actions)
-        if (envs.step_checker) and (actions == 5):
-            print("Got inside the if - statement")
-            temp_act = np.array(0, dtype=int)
-            obs, reward, terminated, truncated, info = envs.step(temp_act)
         if terminated or truncated:
             envs.localization_metric_list.extend(envs.xelona_com.localization_samples)
             obs, info = envs.reset()
@@ -689,11 +681,6 @@ def main_infer_plots():
         print(f">>>>EPISODE RL COUNT IS : {envs.episode_count}<<<<")
         actions, _states = model.predict(obs, deterministic=True)
         obs, reward, terminated, truncated, info = envs.step(actions)
-        print(f"SPAWN POSITION IS  : {envs.step_checker}, and IS LAST action 5 ?? {actions == 5} , adn type is {type(actions)} ")
-        if (envs.step_checker) and (actions == 5):
-            print("Got inside the if - statement")
-            temp_act = np.array(0, dtype=int)
-            obs, reward, terminated, truncated, info = envs.step(temp_act)
         if terminated or truncated:
             obs, info = envs.reset()
     res = np.array(envs.m3)
@@ -874,9 +861,6 @@ def main_infer_plots1():
     while envs.episode_count < 40:
         actions, _states = model.predict(obs, deterministic=True)
         obs, reward, terminated, truncated, info = envs.step(actions)
-        if (envs.step_checker) and (actions == 5):
-            temp_act = np.array(0, dtype=int)
-            obs, reward, terminated, truncated, info = envs.step(temp_act)
         if terminated or truncated:
             obs, info = envs.reset()
 
