@@ -11,8 +11,7 @@ show how the whole system fits together — the reinforcement learning, the
 parallel training, and the engineering required to run all of it on a single
 machine.
 
-> **Thesis:** [Technical University of Crete institutional repository](https://dias.library.tuc.gr/handle/123456789/43922) · [DOI: 10.26233/heallink.tuc.105742](https://doi.org/10.26233/heallink.tuc.105742)
->
+
 > A figure-driven summary of the method and results is in [`REPORT.md`](REPORT.md).
 
 ![Live SLAM mapping in RViz](media/live_mapping.gif)
