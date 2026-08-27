@@ -805,7 +805,7 @@ class Communication_Interface:
         # Choose a world.
         self.circular_idx = self.circular_idx + 1
         rand_world_idx = np.random.randint(len(self.local_origins))
-        rand_world_idx = 3
+       
 
         if self.circular_idx == len(self.local_origins):
             self.circular_idx = 0
@@ -819,21 +819,9 @@ class Communication_Interface:
         spawn_yaw = 0.0
 
         rand_spawn_idx = np.random.randint(len(spawn_pairs))
-        if rand_world_idx == 1:
-            while (rand_spawn_idx == 0 or rand_spawn_idx == 2):
-                rand_spawn_idx = np.random.randint(len(spawn_pairs))
-        elif rand_world_idx == 2:
-            while (rand_spawn_idx == 1):
-                rand_spawn_idx = np.random.randint(len(spawn_pairs))
-                if rand_spawn_idx == 2:
-                    spawn_checker = True
-        elif rand_world_idx == 3:
-            while (rand_spawn_idx == 4):
-                rand_spawn_idx = np.random.randint(len(spawn_pairs))
-
         spawn_coords = spawn_pairs[rand_spawn_idx]
 
-        # Some spawn positions require a special first-move direction.
+        # Some spawn positions require a special small first-move direction.
         if rand_world_idx == 2:
             if (rand_spawn_idx == 0 or rand_spawn_idx == 2):
                 self.crucial_point = True
