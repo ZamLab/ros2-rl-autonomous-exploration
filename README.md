@@ -198,5 +198,4 @@ a configured ROS 2 + Nav2 + SLAM Toolbox + Gazebo installation with the
 TurtleBot3 packages, plus the custom Gazebo worlds and the saved SLAM pose
 graphs referenced in the code — which are part of the wider thesis setup and are
 not included here. The code is intended to show the design and implementation of
-the system; the [thesis](https://doi.org/10.26233/heallink.tuc.105742) is the
-complete reference.
+the system. Additionally, several modifications have been made to the parameter files (.yaml and launch files) of the Nav2 stack, SLAM Toolbox, ROS 2 communication, and the world files.
