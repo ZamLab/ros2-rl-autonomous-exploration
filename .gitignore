@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Training outputs / checkpoints / replay buffers
+my_training_*/
+prev_train/
+*.zip
+*.pkl
+last_checkpoint.txt
+
+# TensorBoard / logs
+my_runs/
+runs/
+dqn_tensorboard*/
+tblogs/
+*.log
+relaunch.log
+
+# Saved metric arrays / generated plots
+*.npy
+*.png
+
+# SLAM maps / large simulation artifacts
+*.pgm
+*.posegraph
+*.data
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Thesis source documents (not committed here; linked instead)
+*.pdf
+*.pptx
