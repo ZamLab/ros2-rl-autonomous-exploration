@@ -793,7 +793,7 @@ class Communication_Interface:
         graph, and clear the costmaps. A watchdog triggers a global restart if
         the reset takes too long."""
         self.localization_samples = []
-        spawn_checker = False
+        
         # Delete previously spawned obstacles if any.
         if self.curr_holes_num != 0:
             self.KillPrevRandHoles(self.curr_holes_num)
@@ -903,7 +903,7 @@ class Communication_Interface:
 
         self.nav.waitUntilNav2Active()
         self.reset_done = True
-        return self.envResetHealth, spawn_checker
+        return self.envResetHealth
 
     def execute_first_small_step(self):
         """Take a small first motion after reset and return the first observed
