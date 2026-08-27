@@ -153,7 +153,8 @@ a GPU cluster. Several design decisions follow directly from that:
   step, action) are guarded by watchdog threads. If one stalls past a timeout,
   a lockfile-coordinated global restart (`stop_envs.sh`) tears down and relaunches
   the simulation stacks, so an overnight training run survives simulator crashes
-  without manual intervention.
+  without manual intervention. The training continues from the last auto-saved model as
+  reset_num_timesteps=False
 
 ## Results (summary)
 
